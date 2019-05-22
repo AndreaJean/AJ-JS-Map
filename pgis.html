@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>JS地图</title>
+  <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_631457_b2jv049wnjk.css">
+  <link rel="stylesheet" type="text/css" href="css/BMap.css">
+  <link rel="stylesheet" type="text/css" href="PMap/api/EzServerClient.min.css">
+  <link rel="stylesheet" type="text/css" href="PMap/api/popup.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="PMap/api/EzMapAPI.js" language="javascript"></script>
+  <script type="text/javascript" src="PMap/api/EzServerClient.min.js" language="javascript"></script>
+</head>
+
+<body>
+  <div id='app' class='test-fullscreen'>
+
+    <div class='map-control-btns'>
+      <button onclick='outerFunc.setMapType()' class='map-control-btn'>切换地图类型</button><br /><!--
+      --><button onclick='outerFunc.panTo()' class='map-control-btn'>移动地图中心点</button><br /><!--
+      --><button onclick='outerFunc.zoomTo()' class='map-control-btn'>改变地图显示比例</button><br /><!--
+      --><button onclick='outerFunc.setCoordinateStatus(true)' class='map-control-btn'>开启拾取坐标</button><!--
+      --><button onclick='outerFunc.setCoordinateStatus(false)' class='map-control-btn'>关闭拾取坐标</button><!--
+      --><button onclick='outerFunc.setEditStatus(true)' class='map-control-btn'>开启编辑</button><!--
+      --><button onclick='outerFunc.setEditStatus(false)' class='map-control-btn'>关闭编辑</button><br /><!--
+      --><button onclick='outerFunc.setDistanceToolStatus(true)' class='map-control-btn'>开启测距</button><!--
+      --><button onclick='outerFunc.setDistanceToolStatus(false)' class='map-control-btn'>关闭测距</button><br /><!--
+      --><button onclick='outerFunc.setDrawStatus(true)' class='map-control-btn'>开启绘图</button><!--
+      --><button onclick='outerFunc.setDrawStatus(false)' class='map-control-btn'>关闭绘图</button><!--
+      --><button onclick='outerFunc.setDrawMode()' class='map-control-btn'>绘圆</button><br /><!--
+      --><button onclick='outerFunc.setTrafficStatus(true)' class='map-control-btn'>开启路况</button><!--
+      --><button onclick='outerFunc.setTrafficStatus(false)' class='map-control-btn'>关闭路况</button><br /><!--
+      --><button onclick='outerFunc.showMarkers(true)' class='map-control-btn'>显示marker</button><!--
+      --><button onclick='outerFunc.showMarkers(false)' class='map-control-btn'>隐藏marker</button><!--
+      --><button onclick='outerFunc.showHeatMap(true)' class='map-control-btn'>显示热力图</button><!--
+      --><button onclick='outerFunc.showHeatMap(false)' class='map-control-btn'>隐藏热力图</button><!--
+      --><button onclick='outerFunc.showLabel(true)' class='map-control-btn'>显示文本标注</button><!--
+      --><button onclick='outerFunc.showLabel(false)' class='map-control-btn'>隐藏文本标注</button><!--
+      --><button onclick='outerFunc.showAdvancedLabel(true)' class='map-control-btn'>显示复杂标注</button><!--
+      --><button onclick='outerFunc.showAdvancedLabel(false)' class='map-control-btn'>隐藏复杂标注</button><!--
+      --><button onclick='outerFunc.showCircle(true)' class='map-control-btn'>显示圆</button><!--
+      --><button onclick='outerFunc.showPolyline(true)' class='map-control-btn'>显示折线</button><!--
+      --><button onclick='outerFunc.showPolygon(true)' class='map-control-btn'>多边形</button><br /><!--
+      --><button onclick='outerFunc.showCurveLine(true)' class='map-control-btn'>显示弧线</button><!--
+      --><button onclick='outerFunc.setOverlayStyle()' class='map-control-btn'>设置覆盖物样式</button><br /><!--
+      --><button onclick='outerFunc.clearAllOverlays()' class='map-control-btn'>清空地图</button><br /><!--
+      --><button onclick='outerFunc.getDrivingPath()' class='map-control-btn'>获取行车路线</button><!--
+      --><button onclick='outerFunc.getDrivingPathAndRun()' class='map-control-btn'>沿路线运动</button><!--
+      --><button onclick='outerFunc.setLuShu("path")' class='map-control-btn'>轨迹线</button><!--
+      --><button onclick='outerFunc.setLuShu("start")' class='map-control-btn'>播放</button><!--
+      --><button onclick='outerFunc.setLuShu("pause")' class='map-control-btn'>暂停</button><!--
+      --><button onclick='outerFunc.setLuShu("stop")' class='map-control-btn'>停止</button><!--
+      --><button onclick='outerFunc.setLuShu("showInfoWindow")' class='map-control-btn'>展示信息窗口</button><!--
+      --><button onclick='outerFunc.setLuShu("hideInfoWindow")' class='map-control-btn'>隐藏信息窗口</button><!--
+      --><button onclick='outerFunc.clearDrivingPath()' class='map-control-btn'>清除行车路线</button><br />
+    </div>
+  
+    <!-- 地图 -->
+    <div id='icJsMap' class='map-eg1'></div>
+  </div>
+</body>
+</html>
+
+<script type="text/javascript" src="data/data.js"></script>
+<script type="text/javascript" src="data/markerStyle.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="PMap/baseMap.js"></script>
+<script type="text/javascript" src="PMap/util.js"></script>
+<script type="text/javascript" src="js/createHtml.js"></script>
+<script type="text/javascript" src="js/defaultOption.js"></script>
+<script type="text/javascript" src="js/icJsMap.js"></script>
+<script type="text/javascript" src="./demo.js"></script>
+<script type="text/javascript">
+var testMap=new IcJsMap()
+window.onload = function () {
+  var option=$.extend({}, testOption)
+  testMap.init('icJsMap',option)
+  // window.IcJsMap.init('icJsMap',testOption)
+}
+</script>
+
+<style>
+  html {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  .test-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  .map-control-btns {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+  }
+  .map-control-btn {
+    display: inline-block;
+    padding:3px 6px;
+    margin:15px 0 0 6px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .map-eg1 {
+    position: absolute;
+    left: 220px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  .map-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    border: 3px solid blue;
+  }
+  .testInfoWinUl {
+    list-style: none;
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    padding: 0;
+  }
+  .testInfoWinUl > li {
+    line-height: 28px;
+    font-size: 12px;
+  }
+  .customResultBox {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(61, 130, 234, 0.1);
+  }
+  .customResultBox:hover {
+    background: rgba(61, 130, 234, 0.1);
+  }
+  .customResultBox > span {
+    display: block;
+    font-size: 14px;
+    color: #3d82ea;
+    vertical-align: middle;
+  }
+  .customResultBox > span .icon {
+    margin-right: 5px;
+  }
+  .customResultBox > p {
+    margin: 5px 0 0 22px;
+    line-height: 24px;
+    font-size: 12px;
+  }
+  .advancedLabel{
+    background:#fff;
+    padding:10px;
+    width:200px;
+    height:auto;
+  }
+</style>

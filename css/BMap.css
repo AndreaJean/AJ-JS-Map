@@ -1,0 +1,626 @@
+.hidden{
+  display: none;
+}
+.ic-map-div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.ic-map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+.ic-advanced-label{
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  background: #fff
+}
+/* 
+// tool ======================================================
+*/
+.ic-map-toolbar {
+  position: absolute;
+  top:20px;
+  right:10px;
+  z-index: 10;
+  background: #fff;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+  padding: 0 4px;
+}
+.ic-map-toolbar>span {
+  display: inline-block;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 10px;
+  font-size: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  color: #333;
+  letter-spacing: 1px;
+}
+.ic-map-toolbar>span:hover {
+  color: #3D82EA;
+}
+.ic-map-toolbar .active,.ic-map-toolbar .active:hover {
+  color: #13CE66;
+}
+.ic-map-toolbar>b {
+  display: inline-block;
+  height: 18px;
+  width: 1px;
+  background: #eee;
+  vertical-align: middle;
+}
+.ic-map-toolbar>span .icon {
+  margin-right: 6px;
+}
+.ic-map-toolbar-triangle {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  z-index: 8;
+}
+.ic-map-toolbar-tool{
+  position: absolute;
+  top: 45px;
+  right: 0;
+  padding: 5px 0;
+  background: #fff;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+}
+.ic-map-toolbar-tool>span{
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+  font-size: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  color: #333;
+  letter-spacing: 1px;
+}
+.ic-map-toolbar-tool>span:hover{
+  color: #3D82EA;
+}
+.ic-map-toolbar-tool>span .icon {
+  margin-right: 6px;
+}
+
+/* 
+// topic ======================================================
+ */
+.ic-map-topicbar {
+  position: absolute;
+  z-index: 4;
+  background: #fff;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+}
+.ic-map-topicbar>span {
+  display: block;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 12px;
+  font-size: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  color: #333;
+  letter-spacing: 1px;
+}
+.ic-map-topicbar>span:hover {
+  color: #3D82EA;
+}
+.ic-map-topicbar>span.active {
+  color: #13CE66;
+}
+.ic-map-topicbar>span .icon {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+/* 
+// infoWin ======================================================
+ */
+.ic-map-infoWin {
+  position: absolute;
+  background: #fff;
+  box-shadow: 2px 2px 4px #888;
+  box-sizing: border-box;
+  transform: translate(-50%, -100%);
+  margin-top: -13px;
+  cursor: default;
+}
+.ic-map-infoWin-triangle {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  box-shadow: 2px 2px 2px #888;
+  z-index: 8;
+}
+.ic-map-infoWin-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  text-indent: 12px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+.ic-map-infoWin-title .icon {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  font-weight: normal;
+  color: #ccc;
+  cursor: pointer;
+}
+.ic-map-infoWin-title .icon:hover {
+  color: #3D82EA;
+  font-weight: bold;
+}
+.ic-map-infoWin-title::after {
+  position: absolute;
+  display: block;
+  top: 13px;
+  left: 15px;
+  width: 4px;
+  height: 14px;
+  background: #3D82EA;
+  content: "";
+}
+.ic-map-infoWin-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 30px 15px 15px 15px;
+  z-index: 9;
+  background: #fff;
+  box-sizing: border-box;
+}
+.ic-map-infoWin-content::after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: "";
+}
+.ic-map-infoWin-img {
+  display: block;
+  margin: 10px auto;
+  border: 1px solid #dfdfdf;
+  padding: 1px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.ic-map-infoWin-img>img {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.ic-map-infoWin-content>p {
+  line-height: 20px;
+  font-size: 12px;
+  margin: 10px 0;
+}
+.ic-map-infoWin-content>button {
+  float: right;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-left: 10px;
+  border: none;
+  background: #3D82EA;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.amap-info-sharp{
+  background: none;
+  height:0 !important;
+}
+.amap-info-content{
+  background: none;
+  border:none;
+  padding:0;
+  box-shadow:none;
+  overflow: visible;
+}
+.amap-info-content:hover{
+  border:none;
+  background: none;
+  box-shadow:none;
+}
+.amap-info-content .ic-map-infoWin{
+  position: relative;
+  transform: translate(0, 0);
+}
+.amap-info-close{
+  top:-8px;
+  z-index: 10;
+}
+/* 
+// ic-map-contextMenu ======================================================
+ */
+.ic-map-contextMenu {
+  position: absolute;
+  width: auto;
+  height: auto;
+  margin-left: 5px;
+  background: #fff;
+  box-shadow: 2px 2px 4px #888;
+  box-sizing: border-box;
+  cursor: default;
+}
+.ic-map-contextMenu>ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ic-map-contextMenu>ul>li {
+  display: block;
+  width: auto;
+  padding: 6px 15px;
+  margin: 0;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.ic-map-contextMenu>ul>li:hover {
+  background: #3D82EA;
+  color: #fff;
+}
+.ic-map-contextMenu>ul>li>i {
+  margin-right: 6px;
+}
+/* 
+// icMapTypeControl ======================================================
+ */
+.ic-map-type-control {
+  position: absolute;
+  bottom:5px;
+  left:50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  background: #fff;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+}
+.ic-map-type-control::after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: "";
+}
+.ic-map-type-control.center {
+  left: 50%;
+  transform: translate(-50%, 0)
+}
+.ic-map-type-control-btn{
+  position: relative;
+  display: inline-block;
+}
+.ic-map-type-control-btn>button {
+  display: inline-block;
+  background: #fff;
+  border: none;
+  padding: 10px 18px;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+}
+.ic-map-type-control-btn>button.active {
+  background: #108EE9;
+  color: #fff;
+}
+.ic-map-type-control-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  padding: 6px 0 10px 0;
+  transform: translateY(-100%);
+  background: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.ic-map-checkbox-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  background: #fff;
+  position: relative;
+  margin-right: 6px;
+  vertical-align: text-bottom;
+}
+.ic-map-checkbox-label {
+  color: #333;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.ic-map-checkbox-fill {
+  display: inline-block;
+  border: 2px solid #fff;
+  border-top-width: 0;
+  border-right-width: 0;
+  width: 8px;
+  height: 4px;
+  /*transform: rotate(-50deg) scale(0,0);*/
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transform: rotate(-50deg) scale(0, 0);
+  transition: transform 0.3s;
+}
+.select .ic-map-checkbox-fill {
+  transform: rotate(-50deg) scale(1, 1);
+}
+.select .ic-map-checkbox-icon {
+  background: #3D82EA;
+  border: 1px solid #dfdfdf;
+}
+/* 
+// icEditControl ======================================================
+ */
+.ic-edit-control {
+  position: absolute;
+  top:20px;
+  left:50%;
+  transform: translateX(-50%);
+  width:auto;
+  z-index: 4;
+  background: #fff;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+}
+.ic-edit-control::after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: "";
+}
+.ic-edit-control.center {
+  left: 50%;
+  transform: translate(-50%, 0)
+}
+.ic-edit-control>button {
+  float: left;
+  display: inline-block;
+  background: #fff;
+  border: none;
+  padding:8px 10px;
+  cursor: pointer;
+  outline: none;
+  color:#333;
+}
+.ic-edit-control>button:hover {
+  color:#108EE9;
+}
+.ic-edit-control>button.active {
+  background: #108EE9;
+  color: #fff;
+}
+.ic-edit-control>button .icon {
+}
+/* 
+// search ======================================================
+ */
+.ic-map-search {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 4;
+  /* width: 360px; */
+  background: #fff;
+  /* padding: 4px 60px 4px 0; */
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+  height: 40px;
+  overflow: hidden;
+}
+/* .ic-map-search::after {
+  position: absolute;
+  display: block;
+  top: 7px;
+  left: 95px;
+  width: 1px;
+  height: 24px;
+  background: #DFDFDF;
+  content: "";
+} */
+.ic-map-search-input{
+  display: inline-block;
+  border: none;
+  background: transparent;
+  width:260px;
+  height: 38px;
+  line-height: 38px;
+  margin-left:15px;
+  vertical-align: baseline;
+  outline: none;
+}
+.ic-map-search-clear{
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: middle;
+  color:#ccc;
+}
+.ic-map-search-clear .icon{
+  font-size: 18px;
+}
+.ic-map-search-clear:hover{
+  color:#3D82EA;
+}
+.ic-map-search-btn {
+  display: inline-block;
+  width: 56px;
+  height: 40px;
+  line-height: 38px;
+  background: #3D82EA;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.ic-map-search-btn .icon {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+.ic-map-search .ic-select-input {
+  border: none;
+  border-radius: 0;
+  padding-left: 15px;
+}
+.ic-map-search .ic-input-container {
+  height: 30px;
+}
+.ic-map-search .ic-select-container {
+  width: 90px;
+  margin-right: 10px;
+}
+.ic-map-search .ic-input-content {
+  border: none;
+  border-radius: 0;
+}
+.ic-map-search .ic-input-content:focus {
+  border: none;
+}
+/* 
+// ic-map-result ======================================================
+ */
+.ic-map-result {
+  position: absolute;
+  top: 68px;
+  left: 20px;
+  z-index: 4;
+  width: 420px;
+  background: #fff;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+  box-sizing:border-box;
+  overflow: hidden;
+}
+.ic-map-result-close {
+  position: absolute;
+  top:10px;
+  right: 10px;
+  z-index: 4;
+  color:#50BFFF;
+  cursor: pointer;
+}
+.ic-map-result-close:hover {
+  color:#E6273E;
+}
+/* 
+// leaflet ======================================================
+ */
+.leaflet-popup-content{
+  margin:0;
+}
+.leaflet-popup-content .ic-map-infoWin-content{
+  margin-top: 35px;
+  padding: 0 15px 15px 15px;
+}
+.labelStyle{
+  color: #fff;
+  font-size: 12px;
+  font-family: '微软雅黑';
+  background-color: rgba(45, 140, 240, .8);
+  width:80px;
+  height:80px;
+  padding: 20px 0;
+  line-height: 22px;
+  border: 1px solid #2d8cf0;
+  border-radius: 50px;
+  /* transform: translate(-50%, -50%); */
+  text-align: center;
+  box-sizing: border-box !important;
+}
+/* 
+// pgis ======================================================
+ */
+.ic-map-type-pgis{
+	top:unset !important;
+	right:50% !important;
+	bottom:15px !important;
+	width:64px !important;
+  background: #fff !important;
+  border: none !important;
+  padding: 10px !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-shadow: 2px 3px 2px rgba(0, 0, 0, .35);
+}
+.ic-map-type-pgis.no1{
+	margin-right:220px;
+}
+.ic-map-type-pgis.no2{
+	margin-right:131px;
+}
+.ic-map-type-pgis.no3{
+	margin-right:42px;
+}
+.ic-map-type-pgis.no4{
+	margin-right:-47px;
+}
+.ic-map-type-pgis.no5{
+	margin-right:-136px;
+}
+.noprint.active {
+  background: #108EE9;
+  color: #fff;
+}
+.ic-map-infoWin-title.pgis{
+	padding:0;
+}
+.ic-map-infoWin-title.pgis::after {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 14px;
+  background: #3D82EA;
+  content: "";
+}
+.ic-map-infoWin-content.pgis{
+	padding:0;
+	padding-top:20px;
+}
+/* 
+// pgis(含heatmap) ======================================================
+ */
+.ic-map-infoWin-title.pgisH{
+}
+.ic-map-infoWin-title.pgisH::after {
+	top:7px;
+}
+.ic-map-infoWin-content.pgisH{
+	padding: 30px 15px 15px 15px;
+}
+.map-eg1 .ez-popup{
+  background: #fff;
+  box-shadow: 2px 2px 4px #888;
+  cursor: default;
+  color: #333;
+  font-weight:normal;
+  border:none;
+  text-align:left;
+}
+.map-eg1 .ez-popup-closer{
+	z-index:10;
+}

@@ -1,0 +1,5 @@
+/node_modules/
+/GMap/
+/vue/
+.eslintrc.js
+package.json
