@@ -10,10 +10,10 @@ var icMarkers3 = [
   { id: 'point6', title: '自定义内容', lng: 116.397082, lat: 39.932863, contentHtml: '<ul class="testInfoWinUl"><li>昔我往矣，杨柳依依；今我来思，雨雪霏霏。</li><li>青青子衿，悠悠我心。</li><li>高山仰止，景行行止。</li><li>知人者智，自知者明。</li></ul>' }
 ]
 var icLabel = [
-  { id: 'label0', text: 'label0', lng: 116.494447, lat: 39.958947, content: 'I can swear I can joke' },
-  { id: 'label1', text: 'label1', lng: 116.259882, lat: 39.98195, content: 'I say whats on my mind' },
-  { id: 'label2', text: 'label2', lng: 116.404287, lat: 39.913008, content: 'If I drink if I smoke' },
-  { id: 'label3', text: 'label3', lng: 116.321397, lat: 39.860654, content: 'I keep up with the guys' },
+  { id: 'label0', text: 'label0', lng: 116.494447, lat: 39.958947, content: 'I can swear I can joke',title:"A" },
+  { id: 'label1', text: 'label1', lng: 116.259882, lat: 39.98195, content: 'I say whats on my mind',title:"B" },
+  { id: 'label2', text: 'label2', lng: 116.404287, lat: 39.913008, content: 'If I drink if I smoke',title:"V" },
+  { id: 'label3', text: 'label3', lng: 116.321397, lat: 39.860654, content: 'I keep up with the guys',title:"G" },
   { id: 'label4', text: 'label4', lng: 116.305875, lat: 39.920001, content: 'And youll see me holding up' },
   { id: 'label5', text: 'label5', lng: 116.421804, lat: 39.900988, content: 'My middle finger to the world' },
   { id: 'label6', text: 'label6', lng: 116.397082, lat: 39.932863, content: 'Fuck your ribbons and your pearls' }

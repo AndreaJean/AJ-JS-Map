@@ -1,4 +1,4 @@
-var JM_option = {
+const JM_option = {
   id: '', // 地图id
   area: '北京', // 地图显示的城市，必填
   center: [116.404, 39.915], // 中心点坐标，必填
@@ -103,7 +103,7 @@ var JM_option = {
     color: '#fff',
     fontSize: '12px',
     fontFamily: '微软雅黑',
-    backgroundColor: 'rgba(45, 140, 240, .8)',
+    background: 'rgba(45, 140, 240, .8)',
     width: '80px',
     height: '80px',
     padding: '20px 0',
@@ -116,7 +116,8 @@ var JM_option = {
     boxSizing: 'border-box',
     offset: [0, 0],
     angle: 0,
-    enableMassClear: true
+    enableMassClear: true,
+    cursor: 'pointer'
   },
   // 圆样式的默认参数
   circleStyle: {
@@ -182,13 +183,17 @@ var JM_option = {
   },
   // 热力图参数配置
   icHeatMap: {
-    isUsed: true, // 是否用到热力图，用于控制是否加载相应js
+    isUsed: false, // 是否用到热力图，用于控制是否加载相应js
     option: {
       radius: 20, // 热力图的半径
       visible: true, // 热力图是否显示
       // gradient: {}, // 热力图的渐变区间,JSON
       opacity: 0.6 // 热力的透明度,0~1
     }
+  },
+  // 是否添加绘制弧线类
+  icCurveLine: {
+    isUsed: false
   },
   // 点聚合参数配置
   icCluster: {
@@ -248,7 +253,7 @@ var JM_option = {
   },
   // 路书
   icLuShu: {
-    isUsed: true, // 是否启用
+    isUsed: false, // 是否启用
     icon: {
       url: 'http://lbsyun.baidu.com/jsdemo/img/car.png',
       position: [52, 26],
@@ -313,7 +318,7 @@ var JM_option = {
   icToolBar: {
     show: false, // 是否显示
     customClass: '', // 自定义类名
-    layout: ['center', 'traffic', 'edit', 'measure', 'coordinate', 'draw'], // 显示哪些功能
+    layout: ['center'], // 显示哪些功能,['center', 'traffic', 'edit', 'measure', 'coordinate', 'draw']
     position: ['right', 'top'], // 先左右，后上下
     x: 10,
     y: 20
@@ -346,7 +351,7 @@ var JM_option = {
 }
 
 // 地图样式，百度
-var JM_stylesB = [
+const JM_stylesB = [
   { style: 'normal', label: '默认风格' },
   { style: 'light', label: '清新蓝风格' },
   { style: 'dark', label: '黑夜风格' },
@@ -361,7 +366,7 @@ var JM_stylesB = [
   { style: 'hardedge', label: '强边界风格' }
 ]
 // 地图样式，高德
-var JM_stylesG = [
+const JM_stylesG = [
   { style: 'normal', label: '标准' },
   { style: 'dark', label: '幻影黑' },
   { style: 'light', label: '月光银' },

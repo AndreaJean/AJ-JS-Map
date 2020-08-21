@@ -168,9 +168,10 @@ var JM_B_util = {
     var point = this.creatPoint(obj)
     var option = {
       point: point,
+      offset:infoWinStyle.offset,
       type: infoWinStyle.type,
       width: infoWinStyle.width,
-      title: obj.title, // 信息窗口标题
+      title: obj.title||infoWinStyle.title, // 信息窗口标题
       img: obj.img,
       imgSize: infoWinStyle.imgSize,
       content: obj.content,

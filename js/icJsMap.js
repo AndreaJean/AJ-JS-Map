@@ -1,11 +1,11 @@
-var IcJsMap = function () {
-  var icMap = this
+let IcJsMap = function () {
+  let icMap = this
   icMap.newObj = {
     box: null,
     option: '',
     map: null,
     init: function (domId, _option) {
-      var defaultOption = JM_util.deepCopy(JM_option)
+      let defaultOption = JM_util.deepCopy(JM_option)
       this.option = JM_util.mergeObjectDeep(defaultOption, _option)
       this.option.id = 'map_' + JM_util.uuid()
 
@@ -95,6 +95,10 @@ var IcJsMap = function () {
     // 获取所有地图样式
     $_getAllMapStyles () {
       return JM_stylesB
+    },
+    // 获取地图当前级别
+    $_getZoom(){
+      return this.map.getZoom()
     },
     // 切换地图样式
     $_setMapStyle (style) {
@@ -222,12 +226,12 @@ var IcJsMap = function () {
       this.bind()
     },
     bind: function () {
-      var me = this
+      let me = this
       this.buttons.click(function () {
         me.buttons.removeClass('active')
         $(this).addClass('active')
 
-        var viewMode = $(this).attr('viewMode')
+        let viewMode = $(this).attr('viewMode')
         me.changeType(viewMode)
       })
       this.mark.click(function () {
@@ -274,7 +278,7 @@ var IcJsMap = function () {
       coordinate: false
     },
     init: function () {
-      var settings = icMap.newObj.option.icToolBar.layout
+      let settings = icMap.newObj.option.icToolBar.layout
       JM_html.addToolBar(icMap.newObj.box, icMap.newObj.option.area, settings)
       this.bar = icMap.newObj.box.find('.ic-map-toolbar')
       this.areaBtn = icMap.newObj.box.find('.ic-map-toolbar-btn.center')
@@ -386,7 +390,7 @@ var IcJsMap = function () {
     bind: function () {
       let me = this
       this.btns.click(function () {
-        var drawType = $(this).attr('data-type')
+        let drawType = $(this).attr('data-type')
         if (drawType !== 'clear') {
           if (!$(this).hasClass('active')) {
             me.btns.removeClass('active')
@@ -407,7 +411,7 @@ var IcJsMap = function () {
     clearBtn: null,
     btns: null,
     init: function () {
-      var settings = icMap.newObj.option.icSearchBar
+      let settings = icMap.newObj.option.icSearchBar
       JM_html.addSearchBar(icMap.newObj.box, settings)
       this.bar = icMap.newObj.box.find('.ic-map-search')
       this.input = this.bar.find('.ic-map-search-input')

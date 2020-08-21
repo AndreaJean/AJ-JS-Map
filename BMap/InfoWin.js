@@ -28,6 +28,7 @@ JM_InfoWin.prototype.draw = function () {
 // 显示
 JM_InfoWin.prototype.show = function (option) {
   var _this = this
+  console.log(this._default)
   this._option = JM_util.mergeObjectDeep(this._default, option)
   if (this._div) {
     this._div.style.display = 'block'
@@ -77,7 +78,7 @@ function createHtml (option) {
 }
 // 常规（图片/一段文字/图片+一段文字）
 function normalWin (option) {
-  var text = '<div class="ic-map-infoWin-title">' + option.title + '<i id="icMapInfoWinCancleBtn" class="icon iconfont icon-shanchu1"></i></div>' +
+  var text = '<div class="ic-map-infoWin-title">' + option.title + '<i id="icMapInfoWinCancleBtn" class="icon iconfont icon-tubiao_guanbi"></i></div>' +
     '<span class="ic-map-infoWin-triangle"></span>' +
     '<div class="ic-map-infoWin-content">'
   if (JM_util.checkNull(option.img)) {
@@ -96,7 +97,7 @@ function normalWin (option) {
 }
 // 自定义
 function customWin (option) {
-  var text = '<div class="ic-map-infoWin-title">' + option.title + '<i id="icMapInfoWinCancleBtn" class="icon iconfont icon-shanchu1"></i></div>' +
+  var text = '<div class="ic-map-infoWin-title">' + option.title + '<i id="icMapInfoWinCancleBtn" class="icon iconfont icon-tubiao_guanbi"></i></div>' +
     '<span class="ic-map-infoWin-triangle"></span>' +
     '<div class="ic-map-infoWin-content">'
   if (JM_util.checkNull(option.contentHtml)) {

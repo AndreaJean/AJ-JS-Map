@@ -238,7 +238,12 @@ var outerFunc = {
     let labelExample = {
       overlayType: 'label',
       clickEvent: this.test1,
-      data: icLabel
+      data: icLabel,
+      infoWinStyle: {
+        title:'aaaa',
+        width: 100,
+        offset: [0, -33]
+      },
     }
     testMap.$_showOverlays(labelExample, flag)
   },
@@ -535,6 +540,13 @@ var testOption = {
     }
     if (flag === 'DistanceTool') {
       console.log('DistanceTool', info)
+    }
+    if (flag === 'dragend') {
+      console.log('拖拽结束', info)
+    }
+    if (flag === 'zoomend') {
+      console.log('地图更改缩放级别结束', info)
+      console.log('当前地图级别', testMap.$_getZoom())
     }
   },
   icDistanceTool: {

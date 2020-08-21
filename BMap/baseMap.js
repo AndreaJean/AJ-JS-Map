@@ -1,6 +1,6 @@
 
-var JM_map = function () {
-  var newObj = {
+let JM_map = function () {
+  let newObj = {
     isMapLoad: true, // 控制判断是否是第一次加载完成地图
     baseMap: {},
     infoWin: {},
@@ -110,7 +110,9 @@ var JM_map = function () {
       this.initOverviewMapControl()
 
       // 添加绘制弧线类
-      JM_B_util.loadJScript(this.Api.CurveLine)
+      if (this.option.icCurveLine.isUsed) {
+        JM_B_util.loadJScript(this.Api.CurveLine)
+      }
 
       // 添加绘制管理类
       if (this.option.icDrawControl.isUsed) {
@@ -180,6 +182,15 @@ var JM_map = function () {
           JM_B_util.showContextMenu(me.icContextMenu, info)
         }
         me.icContextMenu.isTargetMap = true
+      })
+
+      // 拖拽结束时触发此事件
+      this.baseMap.addEventListener('dragend', function (e) {
+        me.option.listenerFunc('dragend', e)
+      })
+      // 地图更改缩放级别结束时触发触发此事件
+      this.baseMap.addEventListener('zoomend', function (e) {
+        me.option.listenerFunc('zoomend', e)
       })
     },
     // 初始化地图显示范围
@@ -263,7 +274,7 @@ var JM_map = function () {
           } else {
             let pointArray = []
             // 一个行政区可能包括地图上的两块无交集区域
-            for (var i = 0; i < count; i++) {
+            for (let i = 0; i < count; i++) {
               let polygon = me.createBoundary(border.boundaries[i], me.option.icBoundary)
               polygon.areaName = area
               me.baseMap.addOverlay(polygon)
@@ -843,7 +854,6 @@ var JM_map = function () {
         // 是否禁默认点击事件
         if (!overlayObj.stopDefaultClickEvent) {
           $('#' + me.option.domId).attr('val', JSON.stringify(overlayObj))
-          // vpEventTarget.fire({ type: 'change', id: me.option.domId, source: 'map', data: JSON.stringify(overlayObj) })
           me.centerAndOpenInfoWindow(overlayObj, overlayObj.infoWinStyle)
         }
         if (JM_util.checkNull(overlayObj.clickEvent)) {
@@ -964,6 +974,10 @@ var JM_map = function () {
     // 通过ID获取覆盖物对象
     getOverlayById (id) {
       return JM_B_util.getOverlayById(this.baseMap, id)
+    },
+    // 获取地图当前级别
+    getZoom(){
+      return this.baseMap.getZoom()
     }
   }
   return newObj
