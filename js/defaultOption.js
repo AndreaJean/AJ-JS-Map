@@ -23,7 +23,7 @@ const JM_option = {
   enableHighResolution: true, // 是否启用使用高分辨率地图。在iPhone4及其后续设备上，可以通过开启此选项获取更高分辨率的底图，v1.2,v1.3版本默认不开启，v1.4默认为开启状态
   enableAutoResize: true, // 是否自动适应地图容器变化
   icMapOnloadFunc: null, // 用户自定义地图加载完成后立即执行的方法
-  listenerFunc: function (type, e) { console.log('监听类型：', type, '回传内容', e) }, // 监听回调
+  listenerFunc: function (key, info) { console.log('监听类型：', key, '回传内容', info) }, // 监听回调
   // 比例尺控件
   scaleControl: {
     show: false, // 是否加载
