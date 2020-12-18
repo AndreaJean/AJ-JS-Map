@@ -176,7 +176,7 @@
 /* 
 // 地图插件 ======================================================
 */
-.hidden{
+.hidden {
   display: none;
 }
 .ic-map-div {
@@ -190,19 +190,17 @@
   height: 100%;
   z-index: 3;
 }
-.ic-advanced-label{
+.ic-advanced-label {
   display: none;
   position: absolute;
   z-index: 9999;
   background: #fff
 }
-/* 
-// tool ======================================================
-*/
+/* ic-map-toolbar */
 .ic-map-toolbar {
   position: absolute;
-  top:20px;
-  right:10px;
+  top: 20px;
+  right: 10px;
   z-index: 10;
   background: #fff;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
@@ -222,7 +220,8 @@
 .ic-map-toolbar>span:hover {
   color: #3D82EA;
 }
-.ic-map-toolbar .active,.ic-map-toolbar .active:hover {
+.ic-map-toolbar .active,
+.ic-map-toolbar .active:hover {
   color: #13CE66;
 }
 .ic-map-toolbar>b {
@@ -245,7 +244,7 @@
   background: #fff;
   z-index: 8;
 }
-.ic-map-toolbar-tool{
+.ic-map-toolbar-tool {
   position: absolute;
   top: 45px;
   right: 0;
@@ -253,7 +252,7 @@
   background: #fff;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
 }
-.ic-map-toolbar-tool>span{
+.ic-map-toolbar-tool>span {
   display: block;
   height: 30px;
   line-height: 30px;
@@ -264,16 +263,13 @@
   color: #333;
   letter-spacing: 1px;
 }
-.ic-map-toolbar-tool>span:hover{
+.ic-map-toolbar-tool>span:hover {
   color: #3D82EA;
 }
 .ic-map-toolbar-tool>span .icon {
   margin-right: 6px;
 }
-
-/* 
-// topic ======================================================
- */
+/* ic-map-topicbar */
 .ic-map-topicbar {
   position: absolute;
   z-index: 4;
@@ -301,9 +297,7 @@
   margin-right: 6px;
   vertical-align: middle;
 }
-/* 
-// infoWin ======================================================
- */
+/* ic-map-infoWin */
 .ic-map-infoWin {
   position: absolute;
   background: #fff;
@@ -343,6 +337,7 @@
   font-weight: normal;
   color: #ccc;
   cursor: pointer;
+  font-size: 14px;
 }
 .ic-map-infoWin-title .icon:hover {
   color: #3D82EA;
@@ -404,33 +399,31 @@
   letter-spacing: 1px;
   cursor: pointer;
 }
-.amap-info-sharp{
+.amap-info-sharp {
   background: none;
-  height:0 !important;
+  height: 0 !important;
 }
-.amap-info-content{
+.amap-info-content {
   background: none;
-  border:none;
-  padding:0;
-  box-shadow:none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
   overflow: visible;
 }
-.amap-info-content:hover{
-  border:none;
+.amap-info-content:hover {
+  border: none;
   background: none;
-  box-shadow:none;
+  box-shadow: none;
 }
-.amap-info-content .ic-map-infoWin{
+.amap-info-content .ic-map-infoWin {
   position: relative;
   transform: translate(0, 0);
 }
-.amap-info-close{
-  top:-8px;
+.amap-info-close {
+  top: -8px;
   z-index: 10;
 }
-/* 
-// ic-map-contextMenu ======================================================
- */
+/* ic-map-contextMenu */
 .ic-map-contextMenu {
   position: absolute;
   width: auto;
@@ -462,13 +455,11 @@
 .ic-map-contextMenu>ul>li>i {
   margin-right: 6px;
 }
-/* 
-// icMapTypeControl ======================================================
- */
+/* icMapTypeControl */
 .ic-map-type-control {
   position: absolute;
-  bottom:5px;
-  left:50%;
+  bottom: 5px;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 4;
   background: #fff;
@@ -484,7 +475,7 @@
   left: 50%;
   transform: translate(-50%, 0)
 }
-.ic-map-type-control-btn{
+.ic-map-type-control-btn {
   position: relative;
   display: inline-block;
 }
@@ -505,8 +496,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  right:0;
-  padding: 6px 0 10px 0;
+  right: 0;
+  padding: 8px 0 10px 0;
   transform: translateY(-100%);
   background: #fff;
   text-align: center;
@@ -549,15 +540,13 @@
   background: #3D82EA;
   border: 1px solid #dfdfdf;
 }
-/* 
-// icEditControl ======================================================
- */
+/* icEditControl */
 .ic-edit-control {
   position: absolute;
-  top:20px;
-  left:50%;
+  top: 20px;
+  left: 50%;
   transform: translateX(-50%);
-  width:auto;
+  width: auto;
   z-index: 4;
   background: #fff;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
@@ -577,24 +566,21 @@
   display: inline-block;
   background: #fff;
   border: none;
-  padding:8px 10px;
+  padding: 8px 10px;
   cursor: pointer;
   outline: none;
-  color:#333;
+  color: #333;
 }
 .ic-edit-control>button:hover {
-  color:#108EE9;
+  color: #108EE9;
 }
 .ic-edit-control>button.active {
   background: #108EE9;
   color: #fff;
 }
-.ic-edit-control>button .icon {
-}
-/* 
-// search ======================================================
- */
-.ic-map-search {
+.ic-edit-control>button .icon {}
+/* ic-map-search */
+ .ic-map-search {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -678,9 +664,7 @@
 .ic-map-search .ic-input-content:focus {
   border: none;
 }
-/* 
-// ic-map-result ======================================================
- */
+/* ic-map-result */
 .ic-map-result {
   position: absolute;
   top: 68px;
@@ -689,53 +673,49 @@
   width: 420px;
   background: #fff;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
-  box-sizing:border-box;
+  box-sizing: border-box;
   overflow: hidden;
 }
 .ic-map-result-close {
   position: absolute;
-  top:10px;
+  top: 10px;
   right: 10px;
   z-index: 4;
-  color:#50BFFF;
+  color: #50BFFF;
   cursor: pointer;
 }
 .ic-map-result-close:hover {
-  color:#E6273E;
+  color: #E6273E;
 }
-/* 
-// leaflet ======================================================
- */
-.leaflet-popup-content{
-  margin:0;
+/* leaflet */
+.leaflet-popup-content {
+  margin: 0;
 }
-.leaflet-popup-content .ic-map-infoWin-content{
+.leaflet-popup-content .ic-map-infoWin-content {
   margin-top: 35px;
   padding: 0 15px 15px 15px;
 }
-.labelStyle{
+.labelStyle {
   color: #fff;
-  font-size: 12px;
+  font-size: '12px';
   font-family: '微软雅黑';
   background-color: rgba(45, 140, 240, .8);
-  width:80px;
-  height:80px;
+  width: 80px;
+  height: 80px;
   padding: 20px 0;
   line-height: 22px;
   border: 1px solid #2d8cf0;
   border-radius: 50px;
   /* transform: translate(-50%, -50%); */
   text-align: center;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
-/* 
-// pgis ======================================================
- */
-.ic-map-type-pgis{
-	top:unset !important;
-	right:50% !important;
-	bottom:15px !important;
-	width:64px !important;
+/* pgis */
+.ic-map-type-pgis {
+  top: unset !important;
+  right: 50% !important;
+  bottom: 15px !important;
+  width: 64px !important;
   background: #fff !important;
   border: none !important;
   padding: 10px !important;
@@ -743,27 +723,27 @@
   outline: none !important;
   box-shadow: 2px 3px 2px rgba(0, 0, 0, .35);
 }
-.ic-map-type-pgis.no1{
-	margin-right:220px;
+.ic-map-type-pgis.no1 {
+  margin-right: 220px;
 }
-.ic-map-type-pgis.no2{
-	margin-right:131px;
+.ic-map-type-pgis.no2 {
+  margin-right: 131px;
 }
-.ic-map-type-pgis.no3{
-	margin-right:42px;
+.ic-map-type-pgis.no3 {
+  margin-right: 42px;
 }
-.ic-map-type-pgis.no4{
-	margin-right:-47px;
+.ic-map-type-pgis.no4 {
+  margin-right: -47px;
 }
-.ic-map-type-pgis.no5{
-	margin-right:-136px;
+.ic-map-type-pgis.no5 {
+  margin-right: -136px;
 }
 .noprint.active {
   background: #108EE9;
   color: #fff;
 }
-.ic-map-infoWin-title.pgis{
-	padding:0;
+.ic-map-infoWin-title.pgis {
+  padding: 0;
 }
 .ic-map-infoWin-title.pgis::after {
   position: absolute;
@@ -775,30 +755,27 @@
   background: #3D82EA;
   content: "";
 }
-.ic-map-infoWin-content.pgis{
-	padding:0;
-	padding-top:20px;
+.ic-map-infoWin-content.pgis {
+  padding: 0;
+  padding-top: 20px;
 }
-/* 
-// pgis(含heatmap) ======================================================
- */
-.ic-map-infoWin-title.pgisH{
-}
+/* pgis(含heatmap) */
+.ic-map-infoWin-title.pgisH {}
 .ic-map-infoWin-title.pgisH::after {
-	top:7px;
+  top: 7px;
 }
-.ic-map-infoWin-content.pgisH{
-	padding: 30px 15px 15px 15px;
+.ic-map-infoWin-content.pgisH {
+  padding: 30px 15px 15px 15px;
 }
-.map-eg1 .ez-popup{
+.ic-map .ez-popup {
   background: #fff;
   box-shadow: 2px 2px 4px #888;
   cursor: default;
   color: #333;
-  font-weight:normal;
-  border:none;
-  text-align:left;
+  font-weight: normal;
+  border: none;
+  text-align: left;
 }
-.map-eg1 .ez-popup-closer{
-	z-index:10;
+.ic-map .ez-popup-closer {
+  z-index: 10;
 }
