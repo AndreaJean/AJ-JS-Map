@@ -182,8 +182,13 @@ let JM_map = function () {
           JM_B_util.showContextMenu(me.icContextMenu, info)
         }
         me.icContextMenu.isTargetMap = true
+        me.option.listenerFunc('rightclick', e)
       })
 
+      // 拖拽开始时触发此事件
+      this.baseMap.addEventListener('dragstart', function (e) {
+        me.option.listenerFunc('dragstart', e)
+      })
       // 拖拽结束时触发此事件
       this.baseMap.addEventListener('dragend', function (e) {
         me.option.listenerFunc('dragend', e)
